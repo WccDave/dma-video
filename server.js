@@ -1,14 +1,14 @@
 const result = require('dotenv').config()
-
-
+var compression = require('compression');
+var helmet = require('helmet');
 const express = require('express')
 const mongoose = require('mongoose')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
-
-
+app.use(helmet());
+app.use(compression());
 
 
 mongoose.connect(process.env.DATABASE_URL, {
