@@ -1,4 +1,4 @@
-const result = require('dotenv').config()
+require('dotenv').config()
 var compression = require('compression');
 var helmet = require('helmet');
 const express = require('express')
@@ -21,6 +21,10 @@ db.once('open', () => console.log("connected to mongoose"))
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
+app.use(function(req, res, next) {
+  res.setHeader("Content-Security-Policy",  "frame-src youtube.com www.youtube.com");
+  return next();
+});
 app.use(methodOverride('_method'))
 
 app.get('/', async (req, res) => {
