@@ -9,6 +9,7 @@ const methodOverride = require('method-override')
 const app = express()
 app.use(helmet());
 app.use(compression());
+const PORT = process.env.PORT || 5000
 
 
 mongoose.connect(process.env.DATABASE_URL, {
@@ -41,4 +42,4 @@ app.get('/add', async (req, res) => {
 
 app.use('/articles', articleRouter)
 
-app.listen(5000)
+app.listen(PORT)
