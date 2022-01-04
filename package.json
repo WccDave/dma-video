@@ -18,5 +18,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.13.14"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "description": ""
 }
