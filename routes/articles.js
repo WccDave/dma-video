@@ -35,12 +35,13 @@ router.put('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res) => {
   await Article.findByIdAndDelete(req.params.id)
-  res.redirect('/')
+  res.redirect('/add')
 })
 
 function saveArticleAndRedirect(path) {
   return async (req, res) => {
     let article = req.article
+    article.page = req.body.page
     article.title = req.body.title
     article.description = req.body.description
     article.markdown = req.body.markdown

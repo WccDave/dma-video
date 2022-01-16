@@ -33,6 +33,16 @@ app.get('/', async (req, res) => {
   res.render('articles/landing', { articles: articles })
 })
 
+app.get('/about', async (req, res) => {
+  const articles = await Article.find().sort({ createdAt: 'desc' })
+  res.render('articles/about', { articles: articles })
+})
+
+app.get('/equity', async (req, res) => {
+  const articles = await Article.find().sort({ createdAt: 'desc' })
+  res.render('articles/equity', { articles: articles })
+})
+
 app.get('/add', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   res.render('articles/index', { articles: articles })

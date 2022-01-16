@@ -3,6 +3,10 @@ const mongoose = require('mongoose')
 
 
 const articleSchema = new mongoose.Schema({
+  page: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
     required: true
