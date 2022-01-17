@@ -32,15 +32,33 @@ app.get('/', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   res.render('articles/landing', { articles: articles })
 })
+app.get('/home', async (req, res) => {
+  res.redirect('/')
+})
 
 app.get('/about', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   res.render('articles/about', { articles: articles })
 })
 
+app.get('/commission', async (req, res) => {
+  const articles = await Article.find().sort({ createdAt: 'desc' })
+  res.render('articles/commission', { articles: articles })
+})
+
+app.get('/revenue', async (req, res) => {
+  const articles = await Article.find().sort({ createdAt: 'desc' })
+  res.render('articles/revenue', { articles: articles })
+})
+
 app.get('/equity', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   res.render('articles/equity', { articles: articles })
+})
+
+app.get('/culture', async (req, res) => {
+  const articles = await Article.find().sort({ createdAt: 'desc' })
+  res.render('articles/culture', { articles: articles })
 })
 
 app.get('/add', async (req, res) => {
