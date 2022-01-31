@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+  <style>
+    .jumbotron {
+      background-image: url("https://homesppc-images.s3.us-east-2.amazonaws.com/2+wh+bk.jpg");
+      background-position: center;
+      background-size: cover;
+      height: 300px;
+      margin-bottom: 1rem;
+      position: relative;
+}
+  </style>
   <title>About Real</title>
   <%- include('_header') %>
     <h1 class="text-center" style="color:#3E3F3C;">About Real</h1>
@@ -38,10 +47,7 @@
             </div>
           </div>
         </div>
-     <div class="my-2">    
-      <a href="/articles/<%= article.id %>" class="btn btn-primary">Read More</a>
-      
-      </div>
+     
     </div>
 
   </div>

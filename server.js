@@ -23,7 +23,7 @@ db.once('open', () => console.log("connected to mongoose"))
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(function(req, res, next) {
-  res.setHeader("Content-Security-Policy",  "frame-src youtube.com www.youtube.com drive.google.com google.com");
+  res.setHeader("Content-Security-Policy",  "frame-src youtube.com www.youtube.com docs.google.com drive.google.com google.com player.vimeo.com www.vimeo.com");
   return next();
 });
 app.use(methodOverride('_method'))
