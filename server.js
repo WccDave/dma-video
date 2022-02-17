@@ -19,6 +19,14 @@ const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log("connected to mongoose"))
 
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
