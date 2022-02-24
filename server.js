@@ -29,9 +29,20 @@ app.use(function(req, res, next) {
 });
 app.use(methodOverride('_method'))
 
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https')
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    else
+      next()
+  })
+}
+
+
 app.get('/', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
   res.render('articles/landing', { articles: articles })
+  
 })
 app.get('/home', async (req, res) => {
   res.redirect('/')
